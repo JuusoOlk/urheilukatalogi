@@ -1,4 +1,4 @@
-package com.example.model;
+package com.example.urheilukatalogi.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -28,13 +28,13 @@ public class Sport {
 		super();
 	}
 	
-	public Sport(Long id, String team, String result, String standing, int date) {
+	public Sport(String team, String result, String standing, int date, SportCategory sportcategory) {
 		super();
-		this.id = id;
 		this.team = team;
 		this.result = result;
 		this.standing = standing;
 		this.date = date;
+		this.sportcategory = sportcategory;
 	}
 	
 	public Long getId() {
@@ -68,10 +68,23 @@ public class Sport {
 		this.date = date;
 	}
 
+	public SportCategory getSportcategory() {
+		return sportcategory;
+	}
+
+	public void setSportcategory(SportCategory sportcategory) {
+		this.sportcategory = sportcategory;
+	}
+
 	@Override
 	public String toString() {
+		if (this.sportcategory != null)
 		return "Sport [id=" + id + ", team=" + team + ", result=" + result + ", standing=" + standing + ", date=" + date
-				+ "]";
+				+ this.getSportcategory() + "]";
+		else
+			return "Sport [id=" + id + ", team=" + team + ", result=" + result + ", standing=" + standing + ", date=" + date
+					+ "]";
 	}
+	
 	
 }

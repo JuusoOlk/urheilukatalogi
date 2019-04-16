@@ -1,4 +1,4 @@
-package com.example.web;
+package com.example.urheilukatalogi.web;
 
 import javax.validation.Valid;
 
@@ -11,11 +11,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.example.domain.UserRepository;
-import com.example.model.SignUpForm;
-import com.example.model.User;
-
-
+import com.example.urheilukatalogi.domain.UserRepository;
+import com.example.urheilukatalogi.model.SignUpForm;
+import com.example.urheilukatalogi.model.User;
 
 @Controller
 public class UserController {
@@ -28,14 +26,6 @@ public class UserController {
 	        return "signup";
 	    }	
 	    
-	    /**
-	     * Create new user
-	     * Check if user already exists & form validation
-	     * 
-	     * @param signupForm
-	     * @param bindingResult
-	     * @return
-	     */
 	    @RequestMapping(value = "saveuser", method = RequestMethod.POST)
 	    public String save(@Valid @ModelAttribute("signupform") SignUpForm signupForm, BindingResult bindingResult) {
 	    	if (!bindingResult.hasErrors()) { // validation errors

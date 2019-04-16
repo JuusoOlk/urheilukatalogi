@@ -1,4 +1,4 @@
-package com.example.model;
+package com.example.urheilukatalogi.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -27,9 +27,8 @@ public class User {
     	
     }
 
-	public User(Long id, String username, String passwordHash, String role) {
+	public User(String username, String passwordHash, String role) {
 		super();
-		this.id = id;
 		this.username = username;
 		this.passwordHash = passwordHash;
 		this.role = role;

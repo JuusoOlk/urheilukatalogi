@@ -1,4 +1,4 @@
-package com.example.web;
+package com.example.urheilukatalogi.web;
 
 import java.util.List;
 import java.util.Optional;
@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.example.domain.CategoryRepository;
-import com.example.domain.SportRepository;
-import com.example.model.Sport;
+import com.example.urheilukatalogi.domain.CategoryRepository;
+import com.example.urheilukatalogi.domain.SportRepository;
+import com.example.urheilukatalogi.model.Sport;
 
 @Controller
 public class SportController {
@@ -24,8 +24,13 @@ public class SportController {
 	@Autowired
 	private CategoryRepository cRepository;
 	
+	@RequestMapping(value="/login")
+	public String login() {
+		return "login";
+	}
+	
 	@GetMapping("/")
-	 public String index() {
+	 public String signUp() {
 		return "redirect:signup";
 	}
 	
@@ -74,7 +79,7 @@ public class SportController {
     }    
 
 	// RESTful service to get sport by id
-    @RequestMapping(value="/book/{id}", method = RequestMethod.GET)
+    @RequestMapping(value="/sport/{id}", method = RequestMethod.GET)
     public @ResponseBody Optional<Sport> sportFindRest(@PathVariable("id") Long sportId) {	
     	return sRepository.findById(sportId);
     }

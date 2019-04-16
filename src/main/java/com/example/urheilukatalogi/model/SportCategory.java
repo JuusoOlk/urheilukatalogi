@@ -1,4 +1,4 @@
-package com.example.model;
+package com.example.urheilukatalogi.model;
 
 import java.util.List;
 
@@ -24,11 +24,9 @@ public class SportCategory {
 		super();
 	}
 
-	public SportCategory(Long sportcatid, String name, List<Sport> sports) {
+	public SportCategory(String name) {
 		super();
-		this.sportcatid = sportcatid;
 		this.name = name;
-		this.sports = sports;
 	}
 
 	public Long getSportcatid() {

@@ -9,7 +9,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import com.example.web.UserDetailService;
+import com.example.urheilukatalogi.web.UserDetailService;
 
 @Configuration
 @EnableGlobalMethodSecurity(prePostEnabled = true)
@@ -30,7 +30,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
           .and()
       .formLogin()
           .loginPage("/login")
-          .defaultSuccessUrl("/booklist")
+          .defaultSuccessUrl("/index")
           .permitAll()
           .and()
       .logout()

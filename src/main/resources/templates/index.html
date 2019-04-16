@@ -18,26 +18,24 @@
 	<table class="table table-striped">
 		<tr>
 			<th>ID</th>
-			<th>Author</th>
-			<th>Title</th>
-			<th>Isbn</th>
-			<th>Year</th>
-			<th>Price</th>
+			<th>Team</th>
+			<th>Result</th>
+			<th>Standing</th>
+			<th>Date</th>
 			<th>Category</th>
 			<th sec:authorize="hasRole('ADMIN')"> </th>
 		</tr>
-		<tr th:each="book : ${books}">
-			<td th:text="${book.id}"></td>
-			<td th:text="${book.author}"></td>
-			<td th:text="${book.title}"></td>
-			<td th:text="${book.isbn}"></td>
-			<td th:text="${book.year}"></td>
-			<td th:text="${book.price}"></td>
-			<td th:text="${book.category.name}"></td> 	
-			<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/delete/{id}(id=${book.id})}" class="btn btn-danger">Delete</a></td>
-			 <td ><a th:href="@{/edit/{id}(id=${book.id})}" class="btn btn-success">Edit</a></td>
+		<tr th:each="sport : ${sports}">
+			<td th:text="${sport.id}"></td>
+			<td th:text="${sport.team}"></td>
+			<td th:text="${sport.result}"></td>
+			<td th:text="${sport.standing}"></td>
+			<td th:text="${sport.date}"></td>
+			<td th:text="${sport.sportcategory.name}"></td> 	
+			<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/delete/{id}(id=${sport.id})}" class="btn btn-danger">Delete</a></td>
+			 <td ><a th:href="@{/edit/{id}(id=${sport.id})}" class="btn btn-success">Edit</a></td>
 		</tr>
 	</table>
-	<a href="/add" class="btn btn-success">Add Book</a> 
+	<a href="/add" class="btn btn-success">Add Sport</a> 
 </body>
 </html>

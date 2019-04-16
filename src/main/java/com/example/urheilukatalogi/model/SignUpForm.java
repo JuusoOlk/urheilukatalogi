@@ -1,4 +1,4 @@
-package com.example.model;
+package com.example.urheilukatalogi.model;
 
 import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.NotEmpty;
