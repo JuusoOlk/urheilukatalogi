@@ -1,5 +1,6 @@
 package com.example.urheilukatalogi.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,10 +13,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 public class Sport {
 	@Id
-	@GeneratedValue (strategy = GenerationType.AUTO)
+	@GeneratedValue (strategy = GenerationType.IDENTITY)
+	@Column 
 	private Long id;
-	private String team, result, standing;
-	private int date;
+	@Column
+	private String team, country, win, lose, standing;
 	
 
 	@ManyToOne
@@ -28,12 +30,12 @@ public class Sport {
 		super();
 	}
 	
-	public Sport(String team, String result, String standing, int date, SportCategory sportcategory) {
+	public Sport(String team, String country, String win, String lose, SportCategory sportcategory) {
 		super();
 		this.team = team;
-		this.result = result;
-		this.standing = standing;
-		this.date = date;
+		this.country = country;
+		this.win = win;
+		this.lose = lose;
 		this.sportcategory = sportcategory;
 	}
 	
@@ -49,23 +51,25 @@ public class Sport {
 	public void setTeam(String team) {
 		this.team = team;
 	}
-	public String getResult() {
-		return result;
+	public String getCountry() {
+		return country;
 	}
-	public void setResult(String result) {
-		this.result = result;
+	public void setCountry(String country) {
+		this.country = country;
 	}
-	public String getStanding() {
-		return standing;
+	public String getWin() {
+		return win;
 	}
-	public void setStanding(String standing) {
-		this.standing = standing;
+	public void setWin(String win) {
+		this.win = win;
 	}
-	public int getDate() {
-		return date;
+	
+	public String getLose() {
+		return lose;
 	}
-	public void setDate(int date) {
-		this.date = date;
+
+	public void setLose(String lose) {
+		this.lose = lose;
 	}
 
 	public SportCategory getSportcategory() {
@@ -79,11 +83,11 @@ public class Sport {
 	@Override
 	public String toString() {
 		if (this.sportcategory != null)
-		return "Sport [id=" + id + ", team=" + team + ", result=" + result + ", standing=" + standing + ", date=" + date
-				+ this.getSportcategory() + "]";
+		return "Sport [id=" + id + ", team=" + team + ", country=" + country  + ", win=" + win + 
+				",  lose=" + lose + this.getSportcategory() + "]";
 		else
-			return "Sport [id=" + id + ", team=" + team + ", result=" + result + ", standing=" + standing + ", date=" + date
-					+ "]";
+			return "Sport [id=" + id + ", team=" + team + ", country=" + country + ", win=" + win
+				+ ", lose=" + lose + "]";
 	}
 	
 	

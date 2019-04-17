@@ -4,6 +4,7 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Sports</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" th:href="@{/style.css}" />
 </head>
 <body>
 	<h1>Add sport</h1>
@@ -12,18 +13,18 @@
 		  	<label for="team">Team</label>
 			<input type="text" id="team" th:field="*{team}" />
 			<div style="clear: both; display: block; height: 10px;"></div>
-		  	<label for="result">Result</label>
-			<input type="text" id="result" th:field="*{result}" />
+		  	<label for="result">Country</label>
+			<input type="text" id="country" th:field="*{country}" />
 			<div style="clear: both; display: block; height: 10px;"></div>
-		  	<label for="standing">Standing</label>
-			<input type="text" th:field="*{standing}" />
+		  	<label for="win">Win</label>
+			<input type="text" th:field="*{win}" />
 			<div style="clear: both; display: block; height: 10px;"></div>
-			<label for="date">Date</label>
-			<input type="text" th:field="*{date}" />
+			<label for="lose">Lose</label>
+			<input type="text" th:field="*{lose}" />
 			<div style="clear: both; display: block; height: 10px;"></div>
 			<label for="categorylist">Category</label>
 			 <select id="categorylist" th:field="*{sportcategory}" class="form-control">
-       			<option th:each="sportcategory: ${categories}" th:value="${sportcategory.sportcatid}" th:text="${sportcategory.name}"></option>
+       			<option th:each="sportcategory: ${sportcategory}" th:value="${sportcategory.sportcatid}" th:text="${sportcategory.name}"></option>
     		</select>
 			
 			<div style="clear: both; display: block; height: 10px;"></div>

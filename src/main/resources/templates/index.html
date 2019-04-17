@@ -3,6 +3,7 @@
 <head>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <title>Sport Catalog</title>
+<link rel="stylesheet" th:href="@{/style.css}" />
 </head>
 <body>
 	<div class="col-md-4">
@@ -16,21 +17,27 @@
 	</div>
 			<h1>Sport Catalog:</h1>
 	<table class="table table-striped">
+	  <thead class="thead-dark">
 		<tr>
 			<th>ID</th>
 			<th>Team</th>
-			<th>Result</th>
-			<th>Standing</th>
-			<th>Date</th>
+			<th>Country</th>
+			<th>Win(s)</th>
+			<th>Lose(s)</th>
+			<th>Total matches</th>
 			<th>Category</th>
+			<th></th>
+			<th></th>
 			<th sec:authorize="hasRole('ADMIN')"> </th>
-		</tr>
+			</tr>
+			</thead>
 		<tr th:each="sport : ${sports}">
 			<td th:text="${sport.id}"></td>
 			<td th:text="${sport.team}"></td>
-			<td th:text="${sport.result}"></td>
-			<td th:text="${sport.standing}"></td>
-			<td th:text="${sport.date}"></td>
+			<td th:text="${sport.country}"></td>
+			<td th:text="${sport.win}"></td>
+			<td th:text="${sport.lose}"></td>
+			<td th:text="${sport.win}+${sport.lose}"></td>
 			<td th:text="${sport.sportcategory.name}"></td> 	
 			<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/delete/{id}(id=${sport.id})}" class="btn btn-danger">Delete</a></td>
 			 <td ><a th:href="@{/edit/{id}(id=${sport.id})}" class="btn btn-success">Edit</a></td>

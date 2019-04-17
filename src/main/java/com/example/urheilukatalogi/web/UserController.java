@@ -20,7 +20,7 @@ public class UserController {
 		@Autowired
 	    private UserRepository urepository; 
 		
-	    @RequestMapping(value = "signup")
+	    @RequestMapping(value = "signup") 	
 	    public String addUser(Model model){
 	    	model.addAttribute("signupform", new SignUpForm());
 	        return "signup";

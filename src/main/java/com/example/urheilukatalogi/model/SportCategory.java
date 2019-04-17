@@ -3,6 +3,7 @@ package com.example.urheilukatalogi.model;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,7 +15,9 @@ public class SportCategory {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column
 	private Long sportcatid;
+	@Column
 	private String name;
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "sportcategory")

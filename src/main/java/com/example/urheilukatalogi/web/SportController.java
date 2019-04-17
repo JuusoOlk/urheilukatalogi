@@ -30,8 +30,8 @@ public class SportController {
 	}
 	
 	@GetMapping("/")
-	 public String signUp() {
-		return "redirect:signup";
+	 public String index() {
+		return "redirect:/index";
 	}
 	
 	// find all sports
@@ -53,7 +53,7 @@ public class SportController {
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     public String save(Sport sport){
         sRepository.save(sport);
-        return "redirect:index";
+        return "redirect:/index";
     }    
     
     //delete sport
@@ -68,7 +68,7 @@ public class SportController {
     @RequestMapping(value = "/edit/{id}")
     public String editSport(@PathVariable("id") Long sportId, Model model){
          model.addAttribute("sport", sRepository.findById(sportId));
-         model.addAttribute("categories", cRepository.findAll());
+         model.addAttribute("sportcategory", cRepository.findAll());
          return "editsport";
     }
     
