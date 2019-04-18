@@ -22,7 +22,7 @@ public class Sport {
 
 	@ManyToOne
 	@JsonIgnore
-    @JoinColumn(name = "sportcatid")
+    @JoinColumn(name = "sportcatid") //joining SportCategory to Sport model
     private SportCategory sportcategory;
 	
 	

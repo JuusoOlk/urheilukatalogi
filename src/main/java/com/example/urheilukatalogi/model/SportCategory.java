@@ -19,8 +19,8 @@ public class SportCategory {
 	private Long sportcatid;
 	@Column
 	private String name;
-	
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "sportcategory")
+
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "sportcategory") //mapping category
 	private List<Sport> sports;
 	
 	public SportCategory() {

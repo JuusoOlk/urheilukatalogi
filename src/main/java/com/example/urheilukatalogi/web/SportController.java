@@ -28,20 +28,20 @@ public class SportController {
 	public String login() {
 		return "login";
 	}
-	
+	//mapping main site
 	@GetMapping("/")
 	 public String index() {
 		return "redirect:/index";
 	}
 	
-	// find all sports
+	//find and list all sports
 	@RequestMapping(value="/index", method=RequestMethod.GET)
 	public String sportList(Model model) {
 		model.addAttribute("sports", sRepository.findAll());
 		return "index";
 	}
 	
-	//add new sport category
+	//add new sport record
 	@RequestMapping(value="/add")
 	public String addSport(Model model) {
 		model.addAttribute("sport", new Sport());
@@ -49,14 +49,14 @@ public class SportController {
 		return "addsport";	
 	}
 	
-	//save sport
+	//saving new sport
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     public String save(Sport sport){
         sRepository.save(sport);
         return "redirect:/index";
     }    
     
-    //delete sport
+    //deleting sport, only for authenticated admin
     @PreAuthorize("hasAuthority('ADMIN')")
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
     public String deleteSport(@PathVariable("id") Long sportId, Model model) {
@@ -64,7 +64,7 @@ public class SportController {
         return "redirect:../index";
     }
     
-    //edit sport
+    //find specific sport and edit it by ID
     @RequestMapping(value = "/edit/{id}")
     public String editSport(@PathVariable("id") Long sportId, Model model){
          model.addAttribute("sport", sRepository.findById(sportId));

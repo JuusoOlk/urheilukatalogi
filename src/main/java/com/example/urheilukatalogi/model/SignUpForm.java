@@ -6,15 +6,15 @@ import javax.validation.constraints.NotEmpty;
 	public class SignUpForm {
 	    @NotEmpty
 	    @Size(min=5, max=30)
-	    private String username = "";
+	    private String username = ""; //limiting username to be between 5 to 30
 
 	    @NotEmpty
 	    @Size(min=7, max=30)
-	    private String password = "";
+	    private String password = ""; //limiting password to be between 7 to 30
 
 	    @NotEmpty
 	    @Size(min=7, max=30)
-	    private String passwordCheck = "";
+	    private String passwordCheck = ""; //checking password
 
 	    @NotEmpty
 	    private String role = "USER";

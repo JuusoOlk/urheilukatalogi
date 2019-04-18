@@ -25,7 +25,7 @@ public class UserController {
 	    	model.addAttribute("signupform", new SignUpForm());
 	        return "signup";
 	    }	
-	    
+	    //saving new user and checking if there is existing one
 	    @RequestMapping(value = "saveuser", method = RequestMethod.POST)
 	    public String save(@Valid @ModelAttribute("signupform") SignUpForm signupForm, BindingResult bindingResult) {
 	    	if (!bindingResult.hasErrors()) { // validation errors

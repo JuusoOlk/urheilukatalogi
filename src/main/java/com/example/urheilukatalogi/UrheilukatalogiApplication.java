@@ -28,6 +28,8 @@ public class UrheilukatalogiApplication {
 	public CommandLineRunner Sport(SportRepository srepository, CategoryRepository crepository, UserRepository urepository) {
 	return (args) -> {
 		
+		//test data that is being injected when running application
+		
 		crepository.save(new SportCategory("Football"));
 		crepository.save(new SportCategory("Ice-Hockey"));
 		crepository.save(new SportCategory("Baseball"));
