@@ -11,16 +11,16 @@
 	<div>		
 		<form th:object="${sport}" th:action="@{save}" action="#" method="post">
 		  	<label for="team">Team</label>
-			<input type="text" id="team" th:field="*{team}" />
+			<input class="form-control" type="text" id="team" th:field="*{team}" />
 			<div style="clear: both; display: block; height: 10px;"></div>
 		  	<label for="result">Country</label>
-			<input type="text" id="country" th:field="*{country}" />
+			<input class="form-control" type="text" id="country" th:field="*{country}" />
 			<div style="clear: both; display: block; height: 10px;"></div>
 		  	<label for="win">Win</label>
-			<input type="text" th:field="*{win}" />
+			<input class="form-control" type="text" th:field="*{win}" />
 			<div style="clear: both; display: block; height: 10px;"></div>
 			<label for="lose">Lose</label>
-			<input type="text" th:field="*{lose}" />
+			<input class="form-control" type="text" th:field="*{lose}" />
 			<div style="clear: both; display: block; height: 10px;"></div>
 			<label for="categorylist">Category</label>
 			 <select id="categorylist" th:field="*{sportcategory}" class="form-control">
